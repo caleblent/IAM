@@ -2,5 +2,7 @@ global:
   css:
     theme:
       css/bootstrap.css: {}
+      css/style.css: {}
   js:
     js/bootstrap.bundle.js: {}
+    js/script.js: {}
