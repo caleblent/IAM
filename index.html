@@ -7,13 +7,122 @@
   </head>
   <body>
     <div class="layout-container">
-      <header></header>
+      <header>
+        <nav
+          class="navbar navbar-expand bg-black border-bottom border-body"
+          data-bs-theme="dark"
+          id="upper-header"
+        >
+          <div class="container">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item me-5">
+                <a class="nav-link d-flex" href="#"
+                  ><img src="images/icons/shopping-cart.svg" alt="" /> Cart</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Log In</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <nav
+          class="navbar navbar-expand-md bg-dark border-bottom border-body"
+          data-bs-theme="dark"
+          id="lower-header"
+        >
+          <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Vendors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
 
       <main role="main">
-        <div class="layout-content"></div>
+        <div class="layout-content" style="background-color: aquamarine">
+          <div class="container">
+            <div class="row">
+              <h1>Heading for main content</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Placeat nemo consectetur unde natus, libero pariatur accusamus.
+                Incidunt eveniet quo eos quas est non dicta fuga animi omnis
+                vero tenetur at, voluptatem inventore ipsam ad facilis! Officiis
+                nam corrupti suscipit optio deleniti iure, quisquam, aspernatur
+                mollitia in sequi, illo quas! Debitis saepe quos laborum odit,
+                veritatis culpa atque consectetur deleniti voluptatem?
+              </p>
+              <h2>Subheading for content</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Placeat nemo consectetur unde natus, libero pariatur accusamus.
+                Incidunt eveniet quo eos quas est non dicta fuga animi omnis
+                vero tenetur at, voluptatem inventore ipsam ad facilis! Officiis
+                nam corrupti suscipit optio deleniti iure, quisquam, aspernatur
+                mollitia in sequi, illo quas! Debitis saepe quos laborum odit,
+                veritatis culpa atque consectetur deleniti voluptatem?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Placeat nemo consectetur unde natus, libero pariatur accusamus.
+                Incidunt eveniet quo eos quas est non dicta fuga animi omnis
+                vero tenetur at, voluptatem inventore ipsam ad facilis! Officiis
+                nam corrupti suscipit optio deleniti iure, quisquam, aspernatur
+                mollitia in sequi, illo quas! Debitis saepe quos laborum odit,
+                veritatis culpa atque consectetur deleniti voluptatem?
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
 
-      <footer></footer>
+      <footer class="text-center bg-black py-4" style="color: #fff">
+        <div class="container">
+          &copy; <span id="year">2024</span>
+          <span class="brand" style="font-weight: bold"
+            >Airsoft Independent Marketplace</span
+          >. All rights reserved.
+          <br class="d-none d-sm-block d-lg-none" />
+          Powered by
+          <a
+            href="https://twincitieswebagency.com"
+            class=""
+            style="font-weight: bold; text-decoration: none"
+            >Twin Cities Web Agency</a
+          >
+        </div>
+      </footer>
     </div>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/script.js"></script>
