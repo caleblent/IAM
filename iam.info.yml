@@ -14,8 +14,8 @@ libraries:
 # libraries-extend:
 hidden: false
 engine: none
-# logo:
-# screenshot:
+logo: logo.svg
+screenshot: screenshot.png
 regions:
   header: 'Header'
   content: 'Content'
