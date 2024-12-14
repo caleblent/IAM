@@ -24,8 +24,13 @@
 {% for type, messages in message_list %}
   {%
     set classes = [
-      'messages',
-      'messages--' ~ type,
+      'alert',
+      'alert-' ~ type,
+      type == 'error' ? 'alert-danger',
+      type == 'status' ? 'alert-success',
+      'alert-dismissible',
+      'fade',
+      'show'
     ]
   %}
   <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>

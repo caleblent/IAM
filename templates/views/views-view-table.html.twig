@@ -33,11 +33,13 @@
 #}
 {%
   set classes = [
+    'table',
+    'table-striped',
     'views-table',
     'views-view-table',
     'cols-' ~ header|length,
     responsive ? 'responsive-enabled',
-    sticky ? 'sticky-header',
+    sticky ? 'sticky-enabled',
   ]
 %}
 <table{{ attributes.addClass(classes) }}>
@@ -48,8 +50,15 @@
     {% else %}
       {{ title }}
     {% endif %}
-    {% if (summary_element is not empty) %}
-      {{ summary_element }}
+    {% if (summary is not empty) or (description is not empty) %}
+      <details>
+        {% if summary is not empty %}
+          <summary>{{ summary }}</summary>
+        {% endif %}
+        {% if description is not empty %}
+          {{ description }}
+        {% endif %}
+      </details>
     {% endif %}
     </caption>
   {% endif %}
