@@ -27,75 +27,91 @@
  *   comment/reply/12345).
  *
  * Regions:
- * - page.header: Items for the header region.
- * - page.primary_menu: Items for the primary menu region.
- * - page.secondary_menu: Items for the secondary menu region.
- * - page.highlighted: Items for the highlighted content region.
- * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.upper_header: Cart and Log In / Log Out
+ * - page.lower_header: Site branding, main menu items
  * - page.content: The main content of the current page.
- * - page.sidebar_first: Items for the first sidebar.
- * - page.sidebar_second: Items for the second sidebar.
  * - page.footer: Items for the footer region.
- * - page.breadcrumb: Items for the breadcrumb region.
  *
  * @see template_preprocess_page()
  * @see html.html.twig
  */
 #}
 {%
-set nav_classes = 'navbar navbar-expand-lg' ~ 
-  (b4_navbar_schema != 'none' ? " navbar-#{b4_navbar_schema}" : ' ') ~
-  (b4_navbar_schema != 'none' ? (b4_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
-  (b4_navbar_bg_schema != 'none' ? " bg-#{b4_navbar_bg_schema}" : ' ')
-%}
+set nav_classes = 'navbar navbar-expand-md bg-dark border-bottom border-body'
+%} 
 
-{%
+{# {%
 set footer_classes = ' ' ~ 
   (b4_footer_schema != 'none' ? " footer-#{b4_footer_schema}" : ' ') ~
   (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
-%}
+%} #}
 
-<header>
-  {{ page.header }}  
+{% if page.upper_header and page.lower_header %}
+<header> 
+  {{ page.upper_header }}
 
-  {% if page.nav_branding or page.nav_main or page.nav_additional %}  
-  <nav class="{{ nav_classes }}">
-    <div class="{{ b4_top_container }} row mx-auto">
-      <div class="col-auto p-0">
-      {{ page.nav_branding }}  
-      </div>
+  {{ page.lower_header }}
+  {# <nav class="{{ nav_classes }}" 
+    id="upper-header"
+    data-bs-theme="dark"
+  >
+    <div class="container">
 
-      <div class="col-3 col-md-auto p-0 text-right">
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-
-      <div class="collapse navbar-collapse col-12 col-md-auto p-0 justify-content-end" id="navbarSupportedContent">
-         {%
-            set navbar_classes = (page.nav_main) ? 'd-lg-flex' : ''
-        %}
-        
-        {{ page.nav_main }}      
-        
-        
-        
-        {{ page.nav_additional }}      
-      </div>
+      {{ page.nav_main }}
+      
     </div>
   </nav>
-  {% endif %}
-
+  
+  <nav
+    class="navbar navbar-expand-md bg-dark border-bottom border-body"
+    data-bs-theme="dark"
+    id="lower-header"
+  >
+    <div class="container">
+      <a class="navbar-brand" href="#">{{ page.branding }}</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Vendors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> #}
 </header>
+{% endif %}
 
 <main role="main">
 
   <div class="container {{ b4_top_container }}">
     <div class="row no-gutters">
-      <div class="order-1 order-lg-2 {{ content_classes }}">
+      <div class="order-1 order-lg-2">
         {{ page.content }}
       </div>
     </div>
@@ -104,9 +120,19 @@ set footer_classes = ' ' ~
 </main>
 
 {% if page.footer %}
-<footer class="mt-auto {{ footer_classes }}">
-  <div class="{{ b4_top_container }}">
-    {{ page.footer }}
+<footer class="text-center bg-black text-white py-4">
+  <div class="container">
+    &copy; <span id="year">2024</span>
+    <span class="brand">Airsoft Independent Marketplace</span
+    >. All rights reserved.
+    <br class="d-none d-sm-block d-lg-none" />
+    Powered by
+    <a
+      href="https://twincitieswebagency.com"
+      class=""
+      style="font-weight: bold; text-decoration: none"
+      >Twin Cities Web Agency</a
+    >
   </div>
 </footer>
 {% endif %}

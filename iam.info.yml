@@ -38,10 +38,8 @@ engine: twig
 # screenshot: screenshot.png
 
 regions:
-  header: "Header"
-  nav_branding: "Navigation branding region"
-  nav_main: "Main navigation region"
-  nav_additional: "Additional navigations region (e.g. search form, social icons, etc.)"
+  upper_header: "Upper Header"
+  lower_header: "Lower Header"
   content: "Content"
   footer: "Footer"
 # regions_hidden:

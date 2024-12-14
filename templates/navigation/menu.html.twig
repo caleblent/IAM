@@ -1,3 +1,4 @@
+{# User account menu??? #}
 {#
 /**
  * @file
@@ -27,10 +28,16 @@
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
+<nav
+  class="navbar navbar-expand bg-black border-bottom border-body"
+  data-bs-theme="dark"
+  id="upper-header"
+>
+  <div class="container">
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass(['nav navbar-nav']) }}>
+      <ul{{ attributes.addClass(['nav navbar-nav ms-auto']) }}>
     {% else %}
       <ul class="list-unstyled ml-3">
     {% endif %}
@@ -56,4 +63,6 @@
     {% endfor %}
     </ul>
   {% endif %}
+  </div>
+</nav>
 {% endmacro %}
