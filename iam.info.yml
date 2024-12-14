@@ -1,25 +1,49 @@
 name: IAM
 type: theme
 base theme: stable9
-core_version_requirement: '>=9.2'
-description: 'Custom theme for Indie Airsoft Marketplace.'
-# dependencies: 
+core_version_requirement: ^9 || ^10 || ^11
+description: "Custom theme for Indie Airsoft Marketplace."
+# dependencies:
 package: Core
-# core: 
-# php: 
-version: '1.0'
+# core:
+# php:
+version: "1.0"
 libraries:
   - iam/global
+  - iam/base
+  - iam/messages
+  - core/normalize
+  - iam/bootstrap5-js-latest
 # libraries-override:
-# libraries-extend:
+libraries-extend:
+  user/drupal.user:
+    - iam/user
+  core/drupal.dropbutton:
+    - iam/dropbutton
+  core/drupal.dialog:
+    - iam/dialog
+  file/drupal.file:
+    - iam/file
+  core/drupal.progress:
+    - iam/progress
+
+ckeditor_stylesheets:
+  - css/style.css
+ckeditor5-stylesheets:
+  - css/ck5style.css
+
 hidden: false
 engine: twig
-logo: logo.svg
-screenshot: screenshot.png
+# logo: logo.svg
+# screenshot: screenshot.png
+
 regions:
-  header: 'Header'
-  content: 'Content'
-  footer: 'Footer'
+  header: "Header"
+  nav_branding: "Navigation branding region"
+  nav_main: "Main navigation region"
+  nav_additional: "Additional navigations region (e.g. search form, social icons, etc.)"
+  content: "Content"
+  footer: "Footer"
 # regions_hidden:
 features:
   - favicon
