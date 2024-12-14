@@ -1,0 +1,5 @@
+global:
+  css:
+    css/bootstrap.css: {}
+  js:
+    js/bootstrap.bundle.js: {}

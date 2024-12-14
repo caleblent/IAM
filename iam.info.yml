@@ -1,6 +1,6 @@
 name: IAM
 type: theme
-base theme: stable9'
+base theme: stable9
 core_version_requirement: '>=9.2'
 description: 'Custom theme for Indie Airsoft Marketplace.'
 # dependencies: 
@@ -8,7 +8,8 @@ package: Core
 # core: 
 # php: 
 version: '1.0'
-# libraries: TODO: add Bootstrap and custom CSS + JS files
+libraries:
+  - iam/global
 # libraries-override:
 # libraries-extend:
 hidden: false
