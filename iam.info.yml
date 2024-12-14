@@ -13,7 +13,7 @@ libraries:
 # libraries-override:
 # libraries-extend:
 hidden: false
-engine: none
+engine: twig
 logo: logo.svg
 screenshot: screenshot.png
 regions:
