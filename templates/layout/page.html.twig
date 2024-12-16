@@ -36,32 +36,19 @@
  * @see html.html.twig
  */
 #}
-{%
-set nav_classes = 'navbar navbar-expand-md bg-dark border-bottom border-body'
-%} 
 
-{# {%
-set footer_classes = ' ' ~ 
-  (b4_footer_schema != 'none' ? " footer-#{b4_footer_schema}" : ' ') ~
-  (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
-  (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
-%} #}
-
-{% if page.upper_header and page.lower_header %}
 <header> 
-  {{ page.upper_header }}
-
-  {{ page.lower_header }}
-  {# <nav class="{{ nav_classes }}" 
-    id="upper-header"
+  {% if page.nav_additional %}
+  <nav
+    class="navbar navbar-expand bg-black border-bottom border-body"
     data-bs-theme="dark"
+    id="upper-header"
   >
     <div class="container">
-
-      {{ page.nav_main }}
-      
+      {{ page.nav_additional }}
     </div>
   </nav>
+  {% endif %}
   
   <nav
     class="navbar navbar-expand-md bg-dark border-bottom border-body"
@@ -69,54 +56,52 @@ set footer_classes = ' ' ~
     id="lower-header"
   >
     <div class="container">
-      <a class="navbar-brand" href="#">{{ page.branding }}</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Vendors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
+      {% if page.nav_branding %}
+        <div class="col-auto p-0">
+          {{ page.nav_branding }}  
+        </div>
+      {% else %}
+        <a class="navbar-brand" href="/">Indie Airsoft</a>
+      {% endif %}
+
+      {# Hamburger menu + nav toggle #}
+      <div class="col-3 col-md-auto p-0 text-right">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      {# end hamburger menu + toggle #}
+
+      <div class="collapse navbar-collapse col-12 col-md-auto p-0 justify-content-end" id="navbarNav">
+      {% if page.nav_main %}
+        {{ page.nav_main }}
+      {% endif %}
+      {% if page.nav_additional %}
+        {{ page.nav_additional }}
+      {% endif %}
       </div>
     </div>
-  </nav> #}
+  </nav>
 </header>
-{% endif %}
 
 <main role="main">
-
-  <div class="container {{ b4_top_container }}">
+  <div class="container py-3">
     <div class="row no-gutters">
       <div class="order-1 order-lg-2">
+      {% if page.content %}
         {{ page.content }}
+      {% endif %}
       </div>
     </div>
   </div>
-
 </main>
 
 {% if page.footer %}
@@ -136,3 +121,6 @@ set footer_classes = ' ' ~
   </div>
 </footer>
 {% endif %}
+
+<script>
+</script>

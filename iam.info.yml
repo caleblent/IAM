@@ -9,11 +9,11 @@ package: Core
 # php:
 version: "1.0"
 libraries:
-  - iam/global
   - iam/base
   - iam/messages
   - core/normalize
   - iam/bootstrap5-js-latest
+  - iam/global
 # libraries-override:
 libraries-extend:
   user/drupal.user:
@@ -38,8 +38,10 @@ engine: twig
 # screenshot: screenshot.png
 
 regions:
-  upper_header: "Upper Header"
-  lower_header: "Lower Header"
+  header: Header
+  nav_branding: "Navigation branding"
+  nav_main: "Main navigation"
+  nav_additional: "Shopping cart and log in/out"
   content: "Content"
   footer: "Footer"
 # regions_hidden:

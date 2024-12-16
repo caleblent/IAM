@@ -114,11 +114,10 @@ bootstrap5-js-latest:
 global:
   css:
     theme:
-      css/bootstrap.css: {}
-      css/style.css: {}
-  js:
-    # js/bootstrap.bundle.js: {}
-    js/script.js: {}
+      css/bootstrap.css:
+        weight: 1
+      css/style.css:
+        weight: 2
 
 drupal.nav-tabs:
   version: VERSION
